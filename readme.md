@@ -1,4 +1,4 @@
 
-# Blog
+# LearnFrontEnd.io
 
-The default [wintersmith](https://github.com/jnordberg/wintersmith) template
+The LearnFrontEnd.io site. Created with WinterSmith and deployed using surge.sh
