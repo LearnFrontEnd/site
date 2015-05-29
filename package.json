@@ -11,6 +11,7 @@
   "devDependencies": {
     "del": "^1.2.0",
     "gulp": "^3.8.11",
+    "gulp-cssnext": "^1.0.0",
     "gulp-livereload": "^3.8.0",
     "gulp-util": "^3.0.4",
     "run-wintersmith": "0.0.3",

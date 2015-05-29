@@ -13,6 +13,7 @@ var gutil = require('gulp-util');
 var clean = require('del');
 var refresh = require('gulp-livereload');
 var runWintersmith = require('run-wintersmith');
+var cssnext = require("gulp-cssnext")
 var lr = require('tiny-lr');
 var server = lr();
 
@@ -62,6 +63,17 @@ gulp.task('build', ['clean'], function(cb) {
 });
 
 //
+// CSS task
+//
+gulp.task("stylesheets", function() {
+  gulp.src("contents/css/src/index.css")
+    .pipe(cssnext({
+        compress: true
+    }))
+    .pipe(gulp.dest("contents/css"))
+});
+
+//
 // Preview task
 //
 gulp.task('preview', function() {
@@ -72,7 +84,7 @@ gulp.task('preview', function() {
 //
 // Watch task
 //
-gulp.task('watch', ['preview', 'lr-server'], function(){
+gulp.task('watch', ['stylesheets', 'preview', 'lr-server'], function(){
     function reportChange(e) {
         gutil.log(gutil.template('File <%= file %> was <%= type %>, rebuilding...', {
             file: gutil.colors.cyan(e.path),
@@ -81,10 +93,14 @@ gulp.task('watch', ['preview', 'lr-server'], function(){
     }
 
     // Watch Jade template files
-    gulp.watch(TEMPLATES_DIR + '/**', ['refresh-browser'])
+    gulp.watch(TEMPLATES_DIR + '/**', ['stylesheets', 'refresh-browser'])
+    .on('change', reportChange);
+
+    // Watch CSS files
+    gulp.watch(CONTENT_DIR + '/css/src/**', ['stylesheets', 'refresh-browser'])
     .on('change', reportChange);
 
     // Watch Markdown files
-    gulp.watch(CONTENT_DIR + '/**', ['refresh-browser'])
+    gulp.watch(CONTENT_DIR + '/**/*.md', ['refresh-browser'])
     .on('change', reportChange);
 });
