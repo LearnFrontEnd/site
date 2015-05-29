@@ -1,12 +1,13 @@
 {
   "locals": {
-    "url": "http://localhost:8080",
-    "name": "LearnFrontEnd.io",
+    "url": "http://learnfrontend.io",
+    "name": "Learn Front-End",
     "owner": "Adam D. Scott",
     "description": "A guide to learning modern front-end web development."
   },
   "plugins": [
-    "./plugins/paginator.coffee"
+    "./plugins/paginator.coffee",
+    "wintersmith-cname"
   ],
   "require": {
     "moment": "moment",

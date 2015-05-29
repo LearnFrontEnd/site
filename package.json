@@ -1,8 +1,19 @@
 {
   "dependencies": {
     "moment": "2.3.x",
+    "run-wintersmith": "0.0.3",
+    "typogr": "0.5.x",
     "underscore": "1.4.x",
-    "typogr": "0.5.x"
+    "wintersmith": "^2.2.0",
+    "wintersmith-cname": "^0.1.0"
   },
-  "repository": "none"
+  "repository": "none",
+  "devDependencies": {
+    "del": "^1.2.0",
+    "gulp": "^3.8.11",
+    "gulp-livereload": "^3.8.0",
+    "gulp-util": "^3.0.4",
+    "run-wintersmith": "0.0.3",
+    "tiny-lr": "^0.1.5"
+  }
 }
