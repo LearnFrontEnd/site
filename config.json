@@ -1,0 +1,26 @@
+{
+  "locals": {
+    "url": "http://localhost:8080",
+    "name": "LearnFrontEnd.io",
+    "owner": "Adam D. Scott",
+    "description": "A guide to learning modern front-end web development."
+  },
+  "plugins": [
+    "./plugins/paginator.coffee"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  },
+  "paginator": {
+    "perPage": 3
+  }
+}

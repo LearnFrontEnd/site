@@ -1,0 +1,5 @@
+---
+view: none
+---
+
+Footer text.
