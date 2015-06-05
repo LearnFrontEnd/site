@@ -10,8 +10,10 @@ var gulp = require('gulp');
 var gutil = require('gulp-util');
 
 // Include plugins
-var clean = require('del');
+var clean = require('gulp-rimraf');
 var refresh = require('gulp-livereload');
+var browserSync = require('browser-sync').create();
+var reload = browserSync.reload;
 var runWintersmith = require('run-wintersmith');
 var cssnext = require("gulp-cssnext")
 var lr = require('tiny-lr');
@@ -29,23 +31,6 @@ var TEMPLATES_DIR = 'templates';
 //
 gulp.task('clean', function() {
     return gulp.src(BUILD_DIR, { read: false }).pipe(clean());
-});
-
-//
-// Helper task - Starts Livereload server
-//
-gulp.task('lr-server', function() {
-  server.listen(35729, function(err) {
-    if(err) { return console.log(err); }
-  });
-});
-
-//
-// Helper task - Tells Livereload to refresh
-//
-gulp.task('refresh-browser', function() {
-  gulp.src('config.json', {read: false})
-    .pipe(refresh(server));
 });
 
 //
@@ -71,6 +56,7 @@ gulp.task("stylesheets", function() {
       compress: true
     }))
     .pipe(gulp.dest("contents/css"))
+    .pipe(browserSync.stream());
 });
 
 //
@@ -81,10 +67,16 @@ gulp.task('preview', function() {
   runWintersmith.preview();
 });
 
+gulp.task('browser-sync', function() {
+    browserSync.init({
+        proxy: "http://localhost:3000"
+    });
+});
+
 //
 // Watch task
 //
-gulp.task('watch', ['stylesheets', 'preview', 'lr-server'], function(){
+gulp.task('watch', ['stylesheets', 'preview', 'browser-sync'], function(){
   function reportChange(e) {
     gutil.log(gutil.template('File <%= file %> was <%= type %>, rebuilding...', {
       file: gutil.colors.cyan(e.path),
@@ -93,14 +85,14 @@ gulp.task('watch', ['stylesheets', 'preview', 'lr-server'], function(){
   }
 
   // Watch Jade template files
-  gulp.watch(TEMPLATES_DIR + '/**', ['stylesheets', 'refresh-browser'])
-  .on('change', reportChange);
-
-  // Watch CSS files
-  gulp.watch(CONTENT_DIR + '/css/src/**', ['stylesheets', 'refresh-browser'])
+  gulp.watch(TEMPLATES_DIR + '/**/*.jade')
   .on('change', reportChange);
 
   // Watch Markdown files
-  gulp.watch(CONTENT_DIR + '/**/*.md', ['refresh-browser'])
+  gulp.watch(CONTENT_DIR + '/**/*.md')
+  .on('change', reportChange);
+
+  // Watch CSS files
+  gulp.watch(CONTENT_DIR + '/css/src/**', ['stylesheets'])
   .on('change', reportChange);
 });

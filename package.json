@@ -34,13 +34,15 @@
   },
   "repository": "none",
   "devDependencies": {
-    "wintersmith-cname": "^0.1.0",
+    "browser-sync": "^2.7.6",
     "del": "^1.2.0",
     "gulp": "^3.8.11",
     "gulp-cssnext": "^1.0.0",
     "gulp-livereload": "^3.8.0",
+    "gulp-rimraf": "^0.1.1",
     "gulp-util": "^3.0.4",
     "run-wintersmith": "0.0.3",
-    "tiny-lr": "^0.1.5"
+    "tiny-lr": "^0.1.5",
+    "wintersmith-cname": "^0.1.0"
   }
 }
