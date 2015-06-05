@@ -35,31 +35,31 @@ gulp.task('clean', function() {
 // Helper task - Starts Livereload server
 //
 gulp.task('lr-server', function() {
-    server.listen(35729, function(err) {
-        if(err) { return console.log(err); }
-    });
+  server.listen(35729, function(err) {
+    if(err) { return console.log(err); }
+  });
 });
 
 //
 // Helper task - Tells Livereload to refresh
 //
 gulp.task('refresh-browser', function() {
-    gulp.src('config.json', {read: false})
-        .pipe(refresh(server));
+  gulp.src('config.json', {read: false})
+    .pipe(refresh(server));
 });
 
 //
 // Build task
 //
 gulp.task('build', ['clean'], function(cb) {
-    // Tell Wintersmith to build
-    runWintersmith.build(function(){
-        // Log on successful build
-        gutil.log('Wintersmith has finished building!');
+  // Tell Wintersmith to build
+  runWintersmith.build(function(){
+    // Log on successful build
+    gutil.log('Wintersmith has finished building!');
 
-        // Tell gulp task has finished
-        cb();
-    });
+    // Tell gulp task has finished
+    cb();
+  });
 });
 
 //
@@ -68,7 +68,7 @@ gulp.task('build', ['clean'], function(cb) {
 gulp.task("stylesheets", function() {
   gulp.src("contents/css/src/index.css")
     .pipe(cssnext({
-        compress: true
+      compress: true
     }))
     .pipe(gulp.dest("contents/css"))
 });
@@ -77,30 +77,30 @@ gulp.task("stylesheets", function() {
 // Preview task
 //
 gulp.task('preview', function() {
-    // Tell Wintersmith to run in preview mode
-    runWintersmith.preview();
+  // Tell Wintersmith to run in preview mode
+  runWintersmith.preview();
 });
 
 //
 // Watch task
 //
 gulp.task('watch', ['stylesheets', 'preview', 'lr-server'], function(){
-    function reportChange(e) {
-        gutil.log(gutil.template('File <%= file %> was <%= type %>, rebuilding...', {
-            file: gutil.colors.cyan(e.path),
-            type: e.type
-        }));
-    }
+  function reportChange(e) {
+    gutil.log(gutil.template('File <%= file %> was <%= type %>, rebuilding...', {
+      file: gutil.colors.cyan(e.path),
+      type: e.type
+    }));
+  }
 
-    // Watch Jade template files
-    gulp.watch(TEMPLATES_DIR + '/**', ['stylesheets', 'refresh-browser'])
-    .on('change', reportChange);
+  // Watch Jade template files
+  gulp.watch(TEMPLATES_DIR + '/**', ['stylesheets', 'refresh-browser'])
+  .on('change', reportChange);
 
-    // Watch CSS files
-    gulp.watch(CONTENT_DIR + '/css/src/**', ['stylesheets', 'refresh-browser'])
-    .on('change', reportChange);
+  // Watch CSS files
+  gulp.watch(CONTENT_DIR + '/css/src/**', ['stylesheets', 'refresh-browser'])
+  .on('change', reportChange);
 
-    // Watch Markdown files
-    gulp.watch(CONTENT_DIR + '/**/*.md', ['refresh-browser'])
-    .on('change', reportChange);
+  // Watch Markdown files
+  gulp.watch(CONTENT_DIR + '/**/*.md', ['refresh-browser'])
+  .on('change', reportChange);
 });
