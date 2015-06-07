@@ -1,0 +1,9 @@
+footer.black.bg-black.white
+  div.px2.py3.container
+    block footer
+      section.about
+        !=contents['about.md'].html
+      section.copy
+        p &copy; #{ new Date().getFullYear() } #{ locals.owner } &mdash; powered by&nbsp;
+          a(href='https://github.com/jnordberg/wintersmith') Wintersmith
+          //- please leave the "powered by" if you use the design

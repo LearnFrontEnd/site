@@ -2,4 +2,6 @@
 view: none
 ---
 
-Footer text.
+## About
+
+LearnFrontEnd.io is a project by Adam D. Scott an educator, author, and web polygot based in the woods of Connecticut, USA.

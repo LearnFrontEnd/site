@@ -13,24 +13,11 @@ html(lang='en')
       link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
       link(rel='stylesheet', href=contents.css['index.css'].url)
   body(class=bodyclass)
-    nav.clearfix.white.bg-blue
-      div.sm-col
-        a(href=locals.url).button.py2.buttontransparent Home
 
-    header.center.px3.py4.white.bg-blue.bg-cover.bg-center
-      h1.h1.h0-responsive.caps.mt4.mb0.regular= locals.name
-      p.h3= locals.description
+    include ./hero.jade
 
     section#content
       div.px2.py3.container
         block content
 
-    footer.black.bg-silver
-      div.px2.py3.container
-        block footer
-          section.about
-            !=contents['about.md'].html
-          section.copy
-            p &copy; #{ new Date().getFullYear() } #{ locals.owner } &mdash; powered by&nbsp;
-              a(href='https://github.com/jnordberg/wintersmith') Wintersmith
-              //- please leave the "powered by" if you use the design
+    include ./footer.jade

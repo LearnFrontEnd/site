@@ -1,9 +1,9 @@
 {
   "locals": {
     "url": "http://learnfrontend.io",
-    "name": "Learn Front-End",
+    "name": "Learn Front-End Web Development",
     "owner": "Adam D. Scott",
-    "description": "A guide to learning modern front-end web development."
+    "description": "A guide to learning HTML, CSS, JavaScript, the command line, terminal, git, testing, tooling and a lot more!"
   },
   "plugins": [
     "./plugins/paginator.coffee",

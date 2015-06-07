@@ -1,6 +1,5 @@
 /* Basscss Modules */
 @import 'basscss-base-reset';
-@import 'basscss-base-buttons';
 @import 'basscss-base-tables';
 @import 'basscss-base-typography';
 
@@ -19,3 +18,13 @@
 @import 'basscss-background-images';
 @import 'basscss-borders';
 @import 'basscss-colors';
+
+/* Custom Modules */
+
+.hero {
+  background-color: #B6DCFB;
+}
+
+:root {
+  --font-family: 'Futura', "Times New Roman", sans-serif;
+}
