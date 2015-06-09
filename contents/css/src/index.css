@@ -26,7 +26,7 @@
 }
 
 :root {
-  --font-family: 'Futura', "Times New Roman", sans-serif;
+  --font-family: 'Futura', "Trebuchet MS", sans-serif;
 }
 
 .visuallyhidden {
@@ -49,4 +49,28 @@
 
 footer a {
   color: #B6DCFB;
+}
+
+/* subscribe */
+
+.subscribe {
+  width: 70%;
+  padding: 1em;
+  font-size: 1em;
+  font-family: 'Futura', "Trebuchet MS", sans-serif;
+  border: 0px;
+}
+
+.submit {
+  background-color: black;
+  color: #FFF;
+  font-family: 'Futura', "Trebuchet MS", sans-serif;
+  border: 0px;
+  font-size: 1em;
+  padding: 1em;
+  width: 20%;
+}
+
+.submit:hover {
+  cursor: pointer;
 }
