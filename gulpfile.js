@@ -83,7 +83,7 @@ gulp.task('browser-sync', function() {
 //
 // Watch task
 //
-gulp.task('watch', ['stylesheets', 'icons', 'preview', 'browser-sync'], function(){
+gulp.task('watch', ['stylesheets', 'preview', 'browser-sync'], function(){
   function reportChange(e) {
     gutil.log(gutil.template('File <%= file %> was <%= type %>, rebuilding...', {
       file: gutil.colors.cyan(e.path),
