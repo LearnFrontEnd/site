@@ -15,7 +15,8 @@ var refresh = require('gulp-livereload');
 var browserSync = require('browser-sync').create();
 var reload = browserSync.reload;
 var runWintersmith = require('run-wintersmith');
-var cssnext = require("gulp-cssnext")
+var cssnext = require('gulp-cssnext')
+var iconify = require('gulp-iconify')
 var lr = require('tiny-lr');
 var server = lr();
 
@@ -59,6 +60,12 @@ gulp.task("stylesheets", function() {
     .pipe(browserSync.stream());
 });
 
+gulp.task('icons', function() {
+    iconify({
+        src: './contents/img/icons/*.svg'
+    });
+});
+
 //
 // Preview task
 //
@@ -76,7 +83,7 @@ gulp.task('browser-sync', function() {
 //
 // Watch task
 //
-gulp.task('watch', ['stylesheets', 'preview', 'browser-sync'], function(){
+gulp.task('watch', ['stylesheets', 'icons', 'preview', 'browser-sync'], function(){
   function reportChange(e) {
     gutil.log(gutil.template('File <%= file %> was <%= type %>, rebuilding...', {
       file: gutil.colors.cyan(e.path),

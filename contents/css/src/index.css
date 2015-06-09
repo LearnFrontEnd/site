@@ -39,3 +39,14 @@
     position: absolute;
     width: 1px;
 }
+
+/*footer */
+@media (min-width: 700px) {
+  .social {
+    padding-top: 4rem;
+  }
+}
+
+footer a {
+  color: #B6DCFB;
+}
