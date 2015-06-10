@@ -21,23 +21,23 @@
 
 /* Custom Modules */
 
-.hero {
-  background-color: #B6DCFB;
-}
-
 :root {
   --font-family: 'Futura', "Trebuchet MS", sans-serif;
 }
 
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+/* set the body bg to black so the footer always extends */
+body {
+  background-color: #000;
+}
+
+/* set the content container to white */
+.content {
+  background-color: #fff;
+}
+
+
+.hero {
+  background-color: #B6DCFB;
 }
 
 /*footer */
@@ -53,8 +53,12 @@ footer a {
 
 /* subscribe */
 
+.subscribe,
+.submit {
+  margin-top: 1em;
+}
+
 .subscribe {
-  width: 70%;
   padding: 1em;
   font-size: 1em;
   font-family: 'Futura', "Trebuchet MS", sans-serif;
@@ -62,15 +66,42 @@ footer a {
 }
 
 .submit {
-  background-color: black;
+  background-color: #000;
   color: #FFF;
   font-family: 'Futura', "Trebuchet MS", sans-serif;
   border: 0px;
   font-size: 1em;
   padding: 1em;
-  width: 20%;
+}
+
+.submit:hover {
+  color: #B6DCFB;
+}
+
+/* layout of subscribe input and button on larger screen sizes */
+@media (min-width: 900px) {
+  .subscribe {
+    width: 70%;
+  }
+
+  .submit {
+    width: 20%;
+  }
 }
 
 .submit:hover {
   cursor: pointer;
+}
+
+/* helper classes */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
