@@ -40,6 +40,18 @@ body {
   background-color: #B6DCFB;
 }
 
+/* sub page header */
+.subhead {
+  background-color: #B6DCFB;
+  padding: 1em 0;
+}
+
+.subheadtitle {
+  margin: 0;
+  font-size: 1.25rem;
+  display: inline-block;
+}
+
 /*footer */
 @media (min-width: 700px) {
   .social {
