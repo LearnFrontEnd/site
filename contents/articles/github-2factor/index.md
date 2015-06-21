@@ -5,6 +5,8 @@ date: 2015-04-30
 template: article.jade
 ---
 
+# GitHub, two-factor auth, and https
+
 When cloning a GitHub repo over HTTPS, you will be prompted to enter your username and password on each push. If you're using two-factor authorization, you may discover that entering your password throws an error.
 
 ![GitHub push fail](push-fail.png)

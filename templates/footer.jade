@@ -1,16 +1,15 @@
 footer.black.bg-black.white
   div.px2.py3.container
     div.clearfix.mxn2
-      block footer
-        section.about.sm-col.sm-col-8.px2
-          !=contents['about.md'].html
-        section.social.sm-col.sm-col-4.px2.center
-          div.sm-col.sm-col-6
-            a(href='https://twitter.com/adamdscott')
-              img(src=contents.img.icons['twitter.svg'].url alt="Follow me on twitter" height="50")
-          div.sm-col.sm-col-6
-            a(href='https://github.com/LearnFrontEnd')
-              img(src=contents.img.icons['github.svg'].url alt="GitHub" height="50")
+      section.about.sm-col.sm-col-8.px2
+        !=contents['about.md'].html
+      section.social.sm-col.sm-col-4.px2.center
+        div.sm-col.sm-col-6
+          a(href='https://twitter.com/adamdscott')
+            img(src=contents.img.icons['twitter.svg'].url alt="Follow me on twitter" height="50")
+        div.sm-col.sm-col-6
+          a(href='https://github.com/LearnFrontEnd')
+            img(src=contents.img.icons['github.svg'].url alt="GitHub" height="50")
     section.copy
     p.center
       small &copy; #{ new Date().getFullYear() } #{ locals.owner }
