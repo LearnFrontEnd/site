@@ -19,12 +19,20 @@
 @import 'basscss-borders';
 @import 'basscss-colors';
 
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 /* Custom Modules */
 
 :root {
-  --font-family: 'Futura', "Trebuchet MS", sans-serif;
+  --font-family: 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Futura', 'Open Sans', 'Trebuchet MS', sans-serif;
+}
 /* set the body bg to black so the footer always extends */
 body {
   background-color: #000;
@@ -35,6 +43,11 @@ body {
   background-color: #fff;
 }
 
+.content p,
+.content ol,
+.conent ul {
+  font-size: 1.0625em;
+}
 
 .hero {
   background-color: #B6DCFB;
