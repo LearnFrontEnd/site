@@ -120,6 +120,10 @@ footer a {
 
 /* helper classes */
 
+.sub {
+  margin: 1em 0 0 0;
+}
+
 .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);

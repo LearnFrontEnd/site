@@ -3,7 +3,7 @@
     "url": "http://learnfrontend.io",
     "name": "Learn Front-End Web Development",
     "owner": "Adam D. Scott",
-    "description": "A guide to learning HTML, CSS, JavaScript, the command line, terminal, git, testing, tooling and a lot more!"
+    "description": "A guide to learning HTML, CSS, JavaScript, the command line, git, testing, tooling and a lot more!"
   },
   "plugins": [
     "./plugins/paginator.coffee",
